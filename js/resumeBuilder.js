@@ -1,20 +1,18 @@
-var contactMe = {
-	mobile : "650-549-5729",
-	email : "rach@lid.cc",
-	github : "https://github.com/lastres0rt",
-	twitter : "@lastres0rt",
-	location : "Santa Clara, CA"
-}
-
-
 var bio = {
-	name : "Rachel Keslensky",
-	role : "Front-End Developer",
-	contacts : contactMe, // Object goes here
-	welcomeMessage : "Developer, Illustrator, Comic Book Maker",
-	skills : ["JavaScript", "HTML", "CSS", "UX"], // Array goes here
-	biopic : "http://placekitten.com/g/300/300" // URL goes here 
-	// display : "" //Function goes Here
+	"name" : "Rachel Keslensky",
+	"role" : "Front-End Developer",
+	"contacts" : {
+		"mobile" : "650-549-5729",
+		"email" : "rach@lid.cc",
+		"github" : "https://github.com/lastres0rt",
+		"twitter" : "@lastres0rt",
+		"location" : "Santa Clara, CA"
+	},
+	"welcomeMessage" : "Developer, Illustrator, Comic Book Maker",
+	"skills" : [
+		"JavaScript", "HTML", "CSS", "UX"
+	], 
+	"biopic" : "http://placekitten.com/g/300/300"
 };
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -51,3 +49,51 @@ function formatSkills(element, index, array) {
 }
 
 bio.skills.forEach(formatSkills);
+
+var work = {
+	"jobs" : [
+		{
+			"employer" : "Dynamic Marketing Systems",
+			"title" : "Usabilty Specialist",
+			"location" : "Norcross, GA",
+			"dates" : "2011-2014",
+			"description" : "Front-End design and development work for Marketing campaigns."
+		},
+		{
+			"employer" : "Last Res0rt Studios",
+			"title" : "Freelance Writer / Illustrator",
+			"location" : "Santa Clara, CA",
+			"dates" : "2007-Present",
+			"description" : "Comic Book Illustration and Publishing"
+		}
+	]
+};
+
+var education = {
+	"schools" : [
+		{
+			"name" : "Georgia Institute of Technology",
+			"location" : "Atlanta, GA",
+			"degree" : "Bachelor of Science",
+			"majors" : "Computer Science",
+			"dates" : 2008,
+			"url" : "http://www.gatech.edu/"
+		},
+		{
+			"name" : "Georgia Institute of Technology",
+			"location" : "Atlanta, GA",
+			"degree" : "Master of Science",
+			"majors" : "Human-Computer Interaction",
+			"dates" : 2012,
+			"url" : "http://www.gatech.edu/"
+		}
+	],
+	"onlineCourses" : [
+		{
+			"title" : "Front-End Web Developer Nanodegree",
+			"school" : "Udacity",
+			"date" : 2015,
+			"url" : "https://www.udacity.com/nanodegree"
+		}
+	]
+}; 
