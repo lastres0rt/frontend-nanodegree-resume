@@ -4,7 +4,7 @@ var bio = {
 	"contacts" : {
 		"mobile" : "650-549-5729",
 		"email" : "rach@lid.cc",
-		"github" : "https://github.com/lastres0rt",
+		"github" : "lastres0rt",
 		"twitter" : "@lastres0rt",
 		"location" : "Santa Clara, CA"
 	},
@@ -12,59 +12,24 @@ var bio = {
 	"skills" : [
 		"JavaScript", "HTML", "CSS", "UX"
 	], 
-	"biopic" : "http://placekitten.com/g/300/300"
+	"biopic" : "http://placekitten.com/g/300/400"
 };
-
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-
-var formatMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formatEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formatGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
-var formatTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-var formatLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-
-var headBox = $("#header");
-var contactBox = $("#footerContacts");
-
-headBox.prepend(formattedWelcome);
-headBox.prepend(formattedRole);
-headBox.prepend(formattedName);
-headBox.prepend(formattedBioPic);
-
-contactBox.append(formatMobile);
-contactBox.append(formatEmail);
-contactBox.append(formatGitHub);
-contactBox.append(formatTwitter);
-contactBox.append(formatLocation);
-
-headBox.append(HTMLskillsStart);
-
-function formatSkills(element, index, array) {
-	var formatSkill = HTMLskills;
-	formatSkill = formatSkill.replace("%data%", element);
- 	headBox.append(formatSkill);
-}
-
-bio.skills.forEach(formatSkills);
 
 var work = {
 	"jobs" : [
-		{
-			"employer" : "Dynamic Marketing Systems",
-			"title" : "Usabilty Specialist",
-			"location" : "Norcross, GA",
-			"dates" : "2011-2014",
-			"description" : "Front-End design and development work for Marketing campaigns."
-		},
 		{
 			"employer" : "Last Res0rt Studios",
 			"title" : "Freelance Writer / Illustrator",
 			"location" : "Santa Clara, CA",
 			"dates" : "2007-Present",
 			"description" : "Comic Book Illustration and Publishing"
+		},
+		{
+			"employer" : "Dynamic Marketing Systems",
+			"title" : "Usabilty Specialist",
+			"location" : "Norcross, GA",
+			"dates" : "2011-2014",
+			"description" : "Front-End design and development work for Marketing campaigns."
 		}
 	]
 };
@@ -74,17 +39,17 @@ var education = {
 		{
 			"name" : "Georgia Institute of Technology",
 			"location" : "Atlanta, GA",
-			"degree" : "Bachelor of Science",
-			"majors" : "Computer Science",
-			"dates" : 2008,
+			"degree" : "Master of Science",
+			"majors" : ["Human-Computer Interaction"],
+			"dates" : 2012,
 			"url" : "http://www.gatech.edu/"
 		},
 		{
 			"name" : "Georgia Institute of Technology",
 			"location" : "Atlanta, GA",
-			"degree" : "Master of Science",
-			"majors" : "Human-Computer Interaction",
-			"dates" : 2012,
+			"degree" : "Bachelor of Science",
+			"majors" : ["Computer Science"],
+			"dates" : 2008,
 			"url" : "http://www.gatech.edu/"
 		}
 	],
@@ -96,4 +61,68 @@ var education = {
 			"url" : "https://www.udacity.com/nanodegree"
 		}
 	]
-}; 
+};
+
+var projects = {
+	"projects" : [
+		{
+			"title" : "Last Res0rt",
+			"dates" : "2007-Present",
+			"description" : "Cyberpunk graphic novel posted a page a week at a time.",
+			"images": [" ", " "]
+		}
+	]
+};
+
+var headBox = $("#header");
+var contactBox = [$("#topContacts"), $("#footerContacts")];
+var workBox = $("#workExperience");
+
+var formatTop = [
+	HTMLheaderRole.replace("%data%", bio.role),
+	HTMLheaderName.replace("%data%", bio.name)
+]
+
+var formatBottom = [
+	HTMLbioPic.replace("%data%", bio.biopic),
+	HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage)
+]
+
+var formatContacts = [
+	HTMLmobile.replace("%data%", bio.contacts.mobile),
+	HTMLemail.replace("%data%", bio.contacts.email),
+	HTMLgithub.replace("%data%", bio.contacts.github),
+	HTMLtwitter.replace("%data%", bio.contacts.twitter),
+	HTMLlocation.replace("%data%", bio.contacts.location),
+];
+
+for(detail in formatTop) {
+	headBox.prepend(formatTop[detail]);
+}
+
+for(contacts in contactBox) {
+	for (detail in formatContacts) {
+		contactBox[contacts].append(formatContacts[detail]);
+	}
+}
+
+for(detail in formatBottom) {
+	headBox.append(formatBottom[detail]);
+}
+
+if(bio.skills.length > 0){
+	headBox.append(HTMLskillsStart);
+	var skillBox = $("#skills");
+	for (skill in bio.skills) {
+		var formatSkill = HTMLskills;
+		formatSkill = formatSkill.replace("%data%", bio.skills[skill]);
+	 	skillBox.append(formatSkill);
+	}
+}
+
+for(job in work.jobs) {
+	workBox.append(HTMLworkStart);
+	var formatEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formatTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	$(".work-entry:last").append(formatEmployer + formatTitle);
+}
