@@ -31,7 +31,25 @@ var work = {
 			"dates" : "2011-2014",
 			"description" : "Front-End design and development work for Marketing campaigns."
 		}
-	]
+	],
+	"display" : function() {
+		for(job in work.jobs) {
+			workBox.append(HTMLworkStart);
+			var thisWork = $(".work-entry:last");
+			var thisJob = work.jobs[job];
+			var formatEmployer = HTMLworkEmployer.replace("%data%", thisJob.employer);
+			var formatTitle = HTMLworkTitle.replace("%data%", thisJob.title);
+			thisWork.append(formatEmployer + formatTitle);
+			var workDetails = [
+				HTMLworkDates.replace("%data%", thisJob.dates),
+				HTMLworkLocation.replace("%data%", thisJob.location),
+				HTMLworkDescription.replace("%data%", thisJob.description)
+			]
+			for(detail in workDetails) {
+				thisWork.append(workDetails[detail]);
+			}
+		}
+	}
 };
 
 var education = {
@@ -69,14 +87,46 @@ var projects = {
 			"title" : "Last Res0rt",
 			"dates" : "2007-Present",
 			"description" : "Cyberpunk graphic novel posted a page a week at a time.",
-			"images": [" ", " "]
+			"images": ["http://placekitten.com/g/400/250", "http://placekitten.com/g/300/250"]
+		},
+		{
+			"title" : "Boom Boom Kyuun",
+			"dates" : "April 2014",
+			"description" : "Unpublished iOS game. Keep your fire-breathing goat friend alive in the minefields!",
+			"images": ["http://placekitten.com/g/325/250", "http://placekitten.com/g/375/250"]
+		},
+		{
+			"title" : "Astrowolf Fur Pebble",
+			"dates" : "January 2015",
+			"description" : "Watchface app for the Pebble Smartwatch.",
+			"images": ["http://placekitten.com/g/350/250", "http://placekitten.com/g/450/250"]
 		}
-	]
+	],
+	"display" : function() {
+		for(proj in projects.projects) {
+			projBox.append(HTMLprojectStart);
+			var thisProjBox = $(".project-entry:last");
+			var thisProj = projects.projects[proj];
+			console.log(thisProj);
+			var projDetails = [
+				HTMLprojectTitle.replace("%data%", thisProj.title),
+				HTMLprojectDates.replace("%data%", thisProj.dates),
+				HTMLprojectDescription.replace("%data%", thisProj.description)
+			]
+			for(detail in projDetails) {
+				thisProjBox.append(projDetails[detail]);
+			}
+			for(image in thisProj.images){
+				thisProjBox.append(HTMLprojectImage.replace("%data%", thisProj.images[image]));
+			}
+		}
+	}
 };
 
 var headBox = $("#header");
 var contactBox = [$("#topContacts"), $("#footerContacts")];
 var workBox = $("#workExperience");
+var projBox = $("#projects");
 
 var formatTop = [
 	HTMLheaderRole.replace("%data%", bio.role),
@@ -120,9 +170,21 @@ if(bio.skills.length > 0){
 	}
 }
 
-for(job in work.jobs) {
-	workBox.append(HTMLworkStart);
-	var formatEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formatTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	$(".work-entry:last").append(formatEmployer + formatTitle);
+work.display();
+
+projects.display();
+
+$(document).click(function(loc) {
+	logClicks(loc.pageX, loc.pageY);
+});
+
+function inName(name) {
+	name = name.trim().split(' ');
+	console.log(name);
+    name[0] = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase(); // Capitalize the first
+    name[1] = name[1].toUpperCase();
+    
+    return name[0] + " " + name[1];
 }
+
+$("#main").append(internationalizeButton);
