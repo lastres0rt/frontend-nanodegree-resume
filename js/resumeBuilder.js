@@ -129,12 +129,10 @@ var education = {
 				thisSchoolBox.append(schoolDetails[detail]);
 			}
 		};
-		if (education.onlineCourses.length > 0){
-			eduBox.append(HTMLonlineClasses);
-		};
 		for(course in education.onlineCourses) {
 			eduBox.append(HTMLschoolStart);
 			var thisSchoolBox = $(".education-entry:last");
+			// thisSchoolBox.append(HTMLonlineClasses);
 			var thisCourse = education.onlineCourses[course];
 			var courseDetails = [
 				HTMLonlineTitle.replace("%data%", thisCourse.title) + HTMLonlineSchool.replace("%data%", thisCourse.school),
@@ -213,6 +211,6 @@ function inName(name) {
     return name[0] + " " + name[1];
 }
 
-$("#main").append(internationalizeButton);
+$("#header").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
 // EOF
