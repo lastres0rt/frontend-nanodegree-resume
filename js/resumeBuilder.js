@@ -201,7 +201,7 @@ education.display();
 $(document).click(function(loc) {
 	logClicks(loc.pageX, loc.pageY);
 });
-
+/* 
 function inName(name) {
 	name = name.trim().split(' ');
 	console.log(name);
@@ -211,6 +211,6 @@ function inName(name) {
     return name[0] + " " + name[1];
 }
 
-$("#header").append(internationalizeButton);
+$("#header").append(internationalizeButton); */ 
 $("#mapDiv").append(googleMap);
 // EOF

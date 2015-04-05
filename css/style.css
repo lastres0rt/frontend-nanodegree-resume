@@ -1,7 +1,7 @@
 * {
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .clearfix {
@@ -22,8 +22,6 @@ h1 {
 
 h2 {
   font-weight: bold;
-  font-size: 24px;
-  color: #999999;
   line-height: 29px;
   padding: 10px;
 }
@@ -95,8 +93,28 @@ a {
   background-color: #F5AE23;
 }
 
+.super-title {
+  font-size: 60px;
+}
+
 .orange-text {
   color: #F5AE23;
+}
+
+.orange-border {
+  border-right: thin solid #F5AE23;
+}
+
+.castle-border {
+  border-bottom: thick dashed #FFF;
+}
+
+.castle-border-gray {
+  border-bottom: thick dashed #F3F3F3;
+}
+
+hr {
+  border: thin solid #F5AE23;
 }
 
 .white-text {
@@ -168,6 +186,14 @@ span {
   text-align: center;
 }
 
+.fancy {
+  font-family: 'Special Elite', cursive;
+}
+
+.dark {
+  color: #000;
+}
+
 @media only screen and (max-width: 1024px) {
   #letsConnect {
     margin-top: 5%;
@@ -203,7 +229,7 @@ span {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 @media only screen and (min-width: 750px) {
