@@ -15,7 +15,7 @@
 
 h1 {
   font-size: 40px;
-  color: #F5A623;
+  color: #008080;
   line-height: 48px;
   display: inline;
 }
@@ -79,30 +79,30 @@ a {
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
+  font-size: 30px;
   color: #F3F3F3;
-  line-height: 28px;
+  line-height: 72px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #008080;
   display: none;
 }
 
-.orange {
-  background-color: #F5AE23;
+.colorful {
+  background-color: #00A0A0;
 }
 
 .super-title {
   font-size: 60px;
 }
 
-.orange-text {
-  color: #F5AE23;
+.colorful-text {
+  color: #00A0A0;
 }
 
-.orange-border {
-  border-right: thin solid #F5AE23;
+.colorful-border {
+  border-right: thin solid #008080;
 }
 
 .castle-border {
@@ -113,8 +113,16 @@ a {
   border-bottom: thick dashed #F3F3F3;
 }
 
+.castle-border-colorful {
+  border-bottom: thick dashed #00A0A0;
+}
+
+.castle-border-dark {
+  border-bottom: thick dashed #4A4A4A;
+}
+
 hr {
-  border: thin solid #F5AE23;
+  border: thin solid #008080;
 }
 
 .white-text {
@@ -130,6 +138,10 @@ hr {
 
 .dark-gray {
   background-color: #4A4A4A;
+}
+
+.bigger {
+  font-size: 18px;
 }
 
 #header {
@@ -228,8 +240,7 @@ span {
 #mapDiv {
   height: 400px;
   width: 100%;
-  padding-bottom: 5%;
-  margin-bottom: 40px;
+  padding-bottom: 100px;
 }
 
 @media only screen and (min-width: 750px) {

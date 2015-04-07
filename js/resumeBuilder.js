@@ -10,9 +10,11 @@ var bio = {
 	},
 	"welcomeMessage" : "Developer, Illustrator, Comic Book Maker",
 	"skills" : [
-		"JavaScript", "HTML", "CSS", "UX", "Comic Book Illustration", "Mockups"
+		"JavaScript", "HTML", "CSS", "UX", 
+		"Comic Book Illustration", "Mockups",
+		"Python", "Adobe Creative Suite"
 	], 
-	"biopic" : "http://placekitten.com/g/300/400",
+	"biopic" : "images/keslensky-headshot-web.jpg",
 	"display" : function() {
 		var formatTop = [
 			HTMLheaderRole.replace("%data%", bio.role),
@@ -152,19 +154,19 @@ var projects = {
 			"title" : "Last Res0rt",
 			"dates" : "2007-Present",
 			"description" : "Cyberpunk graphic novel posted a page a week at a time.",
-			"images": ["http://placekitten.com/g/500/250", "http://placekitten.com/g/300/250"]
+			"images": ["images/lastres0rt-comic-sample.jpg"]
 		},
 		{
 			"title" : "Boom Boom Kyuun",
 			"dates" : "April 2014",
 			"description" : "Unpublished iOS game. Keep your fire-breathing goat friend alive in the minefields!",
-			"images": ["http://placekitten.com/g/250/250", "http://placekitten.com/g/550/250"]
+			"images": ["images/boomboomkyuun-logo.png","images/bbk-shot.jpg"]
 		},
 		{
 			"title" : "Astrowolf Fur Pebble",
 			"dates" : "January 2015",
 			"description" : "Watchface app for the Pebble Smartwatch.",
-			"images": ["http://placekitten.com/g/350/250", "http://placekitten.com/g/450/250"]
+			"images": ["images/astro-pebble.jpg", "images/astro-screen.png"]
 		}
 	],
 	"display" : function() {
